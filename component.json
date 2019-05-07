@@ -1,0 +1,151 @@
+{
+    "title": "Certificates API Client",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/web-Certificates/2018-11-01/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Certificates_List": {
+            "main": "./lib/actions/Certificates_List.js",
+            "title": "Get all certificates for a subscription.",
+            "description": "Get all certificates for a subscription.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Certificates_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Certificates_ListByResourceGroup": {
+            "main": "./lib/actions/Certificates_ListByResourceGroup.js",
+            "title": "Get all certificates in a resource group.",
+            "description": "Get all certificates in a resource group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Certificates_ListByResourceGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Certificates_Delete": {
+            "main": "./lib/actions/Certificates_Delete.js",
+            "title": "Delete a certificate.",
+            "description": "Delete a certificate.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Certificates_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Certificates_Get": {
+            "main": "./lib/actions/Certificates_Get.js",
+            "title": "Get a certificate.",
+            "description": "Get a certificate.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Certificates_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Certificates_Update": {
+            "main": "./lib/actions/Certificates_Update.js",
+            "title": "Create or update a certificate.",
+            "description": "Create or update a certificate.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Certificates_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Certificates_CreateOrUpdate": {
+            "main": "./lib/actions/Certificates_CreateOrUpdate.js",
+            "title": "Create or update a certificate.",
+            "description": "Create or update a certificate.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Certificates_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
